@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body_content %}
+    <p1> Please upload a set of questions and answers in the form of a CSV File!</p1>
+	<!--<div class='form>
+                <form method='POST' action=''>
+			{{ form.hidden_tag() }}
+                        <div class='form_group'>
+                                {{ form.submit }}
+                        </div>
+                </form>
+        </div>-->
+	<a href='{{url_for("testpage")}}'> Take Test</a>
+{% endblock %}
+
+
+

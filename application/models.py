@@ -27,7 +27,6 @@ class Users(db.Model, UserMixin):
     email = db.Column(db.String(150), nullable=False, unique=True)
     password = db.Column(db.String(200), nullable=False)
     posts = db.relationship('Posts', backref='author', lazy=True)
-
     def __repr__(self):
         return ''.join([
 		'UserID: ', str(self.id), '\r\n', 
@@ -35,4 +34,14 @@ class Users(db.Model, UserMixin):
 		'Name: ', self.first_name, ' ', self.last_name 
 	])
 
+class Answers(db.Model):
+   id = db.Column(db.Integer, primary_key=True)
+   question_id = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=False)
+   answer = db.Column(db.String(1000), nullable=False)
+
+
+class Questions(db.Model):
+   id = db.Column(db.Integer, primary_key=True)
+   question = db.Column(db.String(1000), nullable=False)
+   answers = db.relationship('Answers', backref="questions", lazy=False)
 

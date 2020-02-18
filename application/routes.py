@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user, login_required
 from application import app, db, bcrypt
 from application.models import Posts, Users
-from application.forms import PostForm, RegistrationForm, LoginForm, UpdateAccountForm
+from application.forms import PostForm, RegistrationForm, LoginForm, UpdateAccountForm, TakeTest
 
 
 blogData = [{ "name": {"first":"John", "last":"Doe"},
@@ -23,6 +23,19 @@ def home():
 @app.route('/about')
 def about():
 	return render_template('about.html', title='About')
+
+
+@app.route('/question_set', methods=['GET', 'POST'])
+def question_set():
+	form = TakeTest()
+	#if form.validate_on_submit():
+		#return redirect(url_for('testpage'))
+	return render_template('questionbankupload.html', title='Question Set', form=form)
+
+
+@app.route('/testpage')
+def testpage():
+	return render_template('testpage.html', title='The Test')
 
 
 @app.route('/login', methods=['GET', 'POST'])

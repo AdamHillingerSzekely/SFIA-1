@@ -61,6 +61,9 @@ class RegistrationForm(FlaskForm):
 
 
 
+class TakeTest(FlaskForm):
+	submit = SubmitField('Take Test')
+
 class LoginForm(FlaskForm):
 	email = StringField('Email', 
 		validators=[

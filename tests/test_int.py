@@ -28,6 +28,11 @@ class TestBase(LiveServerTestCase):
 		chrome_options = Options()
 		chrome_options.binary_location ="/usr/bin/google-chrome-stable"
 		chrome_options.add_argument("--headless")
+		chrome_options.add_argument("--no-sandbox")
+		chrome_options.add_argument("disable-gpu")
+		chrome_options.add_argument("window-size=1920,1080")
+		chrome_options.add_argument("disable-dev-shm-usage")
+		chrome_options.add_argument("disable-features=VizDisplayCompostior")
 		self.driver = webdriver.Chrome(executable_path="/home/adam301093/chromedriver", chrome_options=chrome_options)
 		self.driver.get("http://localhost:5000")
 		db.session.commit()
@@ -57,7 +62,7 @@ class TestRegistration(TestBase):
 		time.sleep(1)
 
 		# Fill in registration form
-		self.driver.find_element_by_xpath('//*[@id="email"]').send_keys(
+		self.driver.find_element_by_xpath('/html/body/div[2]/form/div[3]/input').send_keys(
 			test_admin_email)
 		self.driver.find_element_by_xpath('/html/body/div[2]/form/div[1]/input').send_keys(
 			test_admin_first_name)
