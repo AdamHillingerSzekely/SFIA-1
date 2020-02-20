@@ -29,19 +29,30 @@ class Users(db.Model, UserMixin):
     posts = db.relationship('Posts', backref='author', lazy=True)
     def __repr__(self):
         return ''.join([
-		'UserID: ', str(self.id), '\r\n', 
-		'Email: ', self.email, '\r\n', 
-		'Name: ', self.first_name, ' ', self.last_name 
+		'UserID: ', str(self.id), '\r\n',
+		'Email: ', self.email, '\r\n',
+		'Name: ', self.first_name, ' ', self.last_name
 	])
 
-class Answers(db.Model):
+class AnsweredQuestion(db.Model):
    id = db.Column(db.Integer, primary_key=True)
-   question_id = db.Column(db.Integer, db.ForeignKey('questions.id'), nullable=False)
+   user_test_id = db.Column(db.Integer, db.ForeignKey('user_test.id'))
+   question = db.Column(db.String(1000), nullable=False)
+   answer = db.Column(db.String(1000), nullable=False)
+   attempts = db.Column(db.Integer)
+   completed = db.Column(db.Boolean, unique=False, default=False)
+
+class UserTest(db.Model):
+   id = db.Column(db.Integer, primary_key=True)
+   answered_questions = db.relationship('AnsweredQuestion', backref='answered_question', lazy=False)
+
+class Question(db.Model):
+   id = db.Column(db.Integer, primary_key=True)
+   test_id = db.Column(db.Integer, db.ForeignKey('test.id'))
+   question = db.Column(db.String(1000), nullable=False)
    answer = db.Column(db.String(1000), nullable=False)
 
-
-class Questions(db.Model):
-   id = db.Column(db.Integer, primary_key=True)
-   question = db.Column(db.String(1000), nullable=False)
-   answers = db.relationship('Answers', backref="questions", lazy=False)
+class Test(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    questions = db.relationship('Question', backref='test_question', lazy=False)
 

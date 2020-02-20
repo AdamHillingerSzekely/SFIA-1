@@ -1,6 +1,20 @@
 {% extends "layout.html" %}
 {% block body_content %}
-    <p1> Analysis of test performance  </p1>
+	<p1> Analysis of test performance  </p1>
+		<div class='form'>
+			<form method='POST' action=''>
+
+{% for result in results %}
+	<div>					
+                        <div class='form_group'>
+				<h3> {{ result.title }} </h3>
+				{{ result.question }}
+				{{ result.answer }}
+				{{ result.attempts }}
+	</div>
+	<br>
+{% endfor %} 
+		
 {% endblock %}
 
 

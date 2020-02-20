@@ -107,3 +107,21 @@ class UpdateAccountForm(FlaskForm):
 				raise ValidationError('Email already in use')
 
 
+
+class QuestionGenerator(FlaskForm):
+	question = StringField('Question',
+		validators=[
+			DataRequired(),
+			Length(min=4, max=100)
+		])
+	submit = SubmitField('Submit Answer')
+
+
+
+class AnswerVerification(FlaskForm):
+	answer = StringField('Answer',
+		validators=[
+			DataRequired(),
+			Length(min=4, max=100)
+		])
+	submit = SubmitField('Submit')
