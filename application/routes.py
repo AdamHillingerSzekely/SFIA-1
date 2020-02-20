@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user, login_required
 from application import app, db, bcrypt
 from application.models import Posts, Users, Test, Question, UserTest, AnsweredQuestion
-from application.forms import PostForm, RegistrationForm, LoginForm, UpdateAccountForm, TakeTest, AnswerVerification, QuestionGenerator
+from application.forms import PostForm, RegistrationForm, LoginForm, UpdateAccountForm, TakeTest, AnswerVerification, QuestionGenerator, TestComment
 import random
 
 
@@ -91,8 +91,17 @@ def user_question(test_id, question_id):
 @app.route('/test/<test_id>/analysis', methods=['GET', 'POST'])
 def analysis(test_id):
 	results=AnsweredQuestion.query.filter_by(user_test_id=test_id)
-
-	return render_template('analysis.html', results=results)
+	form = TestComment()
+	if form.validate_on_submit():
+		Comment = Posts(
+		comment = form.comment.data,
+		title = form.title.data,
+		content = form.content.data,
+		author=current_user)
+		db.session.add(Comment)
+		db.session.commit()
+		return redirect(url_for('home'))
+	return render_template('analysis.html', results=results, form=form)
 
 
 
@@ -189,3 +198,13 @@ def account_delete():
 	db.session.delete(account)
 	db.session.commit()
 	return redirect(url_for('register'))
+
+
+
+@app.route("/post/delete/<id>", methods=["GET", "POST"])
+@login_required
+def delete_post(id):
+	deleter = Posts.query.filter_by(id=id).first()
+	db.session.delete(deleter)
+	db.session.commit()
+	return redirect(url_for('home'))

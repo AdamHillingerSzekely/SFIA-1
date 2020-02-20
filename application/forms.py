@@ -61,11 +61,13 @@ class RegistrationForm(FlaskForm):
 
 
 
+
+
 class TakeTest(FlaskForm):
 	submit = SubmitField('Take Test')
 
 class LoginForm(FlaskForm):
-	email = StringField('Email', 
+	email = StringField('Email',
 		validators=[
 			DataRequired(),
 			Email()
@@ -81,6 +83,26 @@ class LoginForm(FlaskForm):
 	remember = BooleanField('Remember Me')
 	submit = SubmitField('Login')
 
+class TestComment(FlaskForm):
+	comment = StringField('Comment',
+		validators=[
+			DataRequired(),
+			Length(min=4, max=100)
+		]
+	)
+	title = StringField('Title',
+		validators = [
+			DataRequired(),
+			Length(min=2, max=100)
+		]
+	)
+	content = StringField('Content',
+		validators = [
+			DataRequired(),
+			Length(min=2, max=1000)
+		]
+	)
+	submit = SubmitField('Submit Comment')
 
 class UpdateAccountForm(FlaskForm):
 	first_name = StringField('First Name',
