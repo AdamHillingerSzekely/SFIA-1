@@ -10,9 +10,9 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = str(os.getenv('DATABASE_URI'))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Hillinger1993@35.242.176.52/flaskapp'
 db = SQLAlchemy(app)
-app.config['SECRET_KEY'] = str(getenv('MY_SECRET_KEY'))
+app.config['SECRET_KEY'] = 'jfdoifoidfdjfoijwdaspcvk0e9uwf8h8f' 
 
 from application import routes
 
