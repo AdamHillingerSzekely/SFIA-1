@@ -66,7 +66,7 @@ def testpage(id):
     print(unanswered_questions)
     if unanswered_questions:
         question = random.choice(unanswered_questions)
-        print(f"{question.question}\n{question.answer}")
+       # print(f"{question.question}\n{question.answer}")
         return render_template('testpage.html', title='The Test', question=question, form=form, test_id=id)
     # render_template('user-test.html', question=question)
     print('all questions answered, going to the results')
