@@ -12,7 +12,8 @@ login_manager.login_view = 'login'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = str(os.getenv('DATABASE_URI'))
 db = SQLAlchemy(app)
-app.config['SECRET_KEY'] = str(getenv('MY_SECRET_KEY')) 
+app.config['SECRET_KEY'] = str(getenv('MY_SECRET_KEY'))
+
 
 from application import routes
 
