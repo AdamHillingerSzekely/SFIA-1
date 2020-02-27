@@ -35,10 +35,10 @@ def question_set():
 def user_test_create():
     test = Test.query.filter_by(id=1).first()
     user_questions = []
-    print('creating user questions')
+    #print('creating user questions')
     for question in test.questions:
         user_questions.append(AnsweredQuestion(question=question.question, answer=question.answer, attempts = 0))
-    print('creating user test')
+    #print('creating user test')
     user_test = UserTest(answered_questions=user_questions)
     db.session.add(user_test)
     db.session.commit()
