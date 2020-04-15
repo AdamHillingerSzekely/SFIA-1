@@ -19,7 +19,7 @@ In order to meet the requirements of SFIA-1 it was necessary to fulfil the CRUD 
   
  ## Risk Assessment
  
- Illustrated below is a rudimentary risk assessment, where potential problems that could be encountered have been identified.
+ Illustrated below is a rudimentary risk assessment, where potential problems that could be encountered over the duration of the project have been identified.
  
  ![Riskassessment](https://user-images.githubusercontent.com/60216123/79338566-6eed9880-7f1f-11ea-8a2f-6a546f97caf4.png)
 
