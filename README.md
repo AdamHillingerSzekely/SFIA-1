@@ -16,6 +16,7 @@ In order to meet the requirements of SFIA-1 it was necessary to fulfil the CRUD 
   - Supporting documentation created during the planning phase including a risk assessment.
   - The implementation of CRUD using the python programming language and Flask website framework.
   - Validation of the functionality of the website using automated testing in keeping with the test driven development methodology. 
+  - Automated deployment using Jenkins. 
   
  ## Risk Assessment
  
