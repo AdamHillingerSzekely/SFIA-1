@@ -37,7 +37,8 @@ Two entity relationship diagrams (ERD) were created. The first of which displays
 
 The second ERD was constructed retrospectively, after the architecture was finalised. Although more tables are present it is less inter-connected for simplicity. Rather than connecting the tables in the models file, it was decided (based on advice from my project supervisor) to exchange information in certain circumstances in the routes file.  
 
- 
+![ERDfinal](https://user-images.githubusercontent.com/60216123/79341764-313f3e80-7f24-11ea-8113-ad79ff890d83.png)
+
  ## Future Improvements
 
 - As described in the Trello board, it would be beneficial for the user to be able to manually add questions and answers as opposed to uploading a csv file of questions in the backend of the website.
