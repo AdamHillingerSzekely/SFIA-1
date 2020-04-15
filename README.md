@@ -43,5 +43,5 @@ The second ERD was constructed retrospectively, after the architecture was final
  ## Future Improvements
 
 - As described in the Trello board, it would be beneficial for the user to be able to manually add questions and answers as opposed to uploading a csv file of questions in the backend of the website.
-- Beautifying the website using HTML bootstrap or a similar library.
+- Beautification of the website using HTML bootstrap or a similar library.
 - Add a match question and answer to the website, where the user views seperately randomised questions and answers and has to correctly match them up.
