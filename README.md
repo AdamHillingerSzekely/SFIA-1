@@ -33,11 +33,10 @@ The Trello board created for this project is depicted below. Further information
  
 Two entity relationship diagrams (ERD) were created. The first of which displays the proposed relationships between the tables, underpinning the architecture of website.
 
-[ERDfirst.pdf](https://github.com/AdamHillingerSzekely/SFIA-1/files/4481243/ERDfirst.pdf)
+![ERDfirst](https://user-images.githubusercontent.com/60216123/79341762-300e1180-7f24-11ea-9200-35d80f44a2a4.png)
 
 The second ERD was constructed retrospectively, after the architecture was finalised. Although more tables are present it is less inter-connected for simplicity. Rather than connecting the tables in the models file, it was decided (based on advice from my project supervisor) to exchange information in certain circumstances in the routes file.  
 
-[ERDfinal.pdf](https://github.com/AdamHillingerSzekely/SFIA-1/files/4481244/ERDfinal.pdf)
  
  ## Future Improvements
 
