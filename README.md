@@ -1,4 +1,4 @@
-# Research and Development into Advanced Manufacturing Revision tool
+# Research and Development into Advanced Manufacturing Revision Tool
 
 V1.0
 
